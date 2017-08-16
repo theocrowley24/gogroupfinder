@@ -20,7 +20,7 @@ echo("<img src='GoGroupFinder.png' alt='GoGroupFinder'</img>");
 echo '<nav class="nav nav-pills nav-fill" style="padding-top:10px; padding-bottom:10px;">
   <a class="nav-item nav-link" href="index.php">Create</a>
   <a class="nav-item nav-link active" href="Current.php">Current</a>
-  <a class="nav-item nav-link" href="http://theocrowley.com">Contact Me</a>
+  <a class="nav-item nav-link" href="ContactMe.php">Contact Me</a>
 </nav>';
 
 echo('<form action="Current.php" method="post" style="padding-top:10px; padding-bottom:10px; padding-right:20px; padding-left:20px;">
