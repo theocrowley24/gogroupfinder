@@ -11,3 +11,5 @@ Automating deletion of old records:
 
 1. You can either use a CRON job to do this, if using a CRON job run a command which executes DeleteOld.php every minute.
 2. Otherwise you can use the MySQL event scheduler to do this
+
+See it in action at http://theocrowley.com/gogroupfinder/
