@@ -1,0 +1,35 @@
+
+Create raid table:
+
+CREATE TABLE `raids` (
+  `idRaids` int(11) NOT NULL AUTO_INCREMENT,
+  `Location` varchar(45) DEFAULT NULL,
+  `Time` varchar(45) DEFAULT NULL,
+  `RaidBoss` varchar(45) DEFAULT NULL,
+  `NumberAttending` int(11) DEFAULT NULL,
+  `City` varchar(45) DEFAULT NULL,
+  `unix` int(11) DEFAULT NULL,
+  `AdditionalNotes` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idRaids`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+
+Create users table:
+
+CREATE TABLE `users` (
+  `idUsers` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idRaids` int(11) DEFAULT NULL,
+  `users_ip` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idUsers`),
+  UNIQUE KEY `idRaids` (`idRaids`,`users_ip`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+
+
+Delete old records:
+
+CREATE EVENT DeleteOld
+    ON SCHEDULE
+      EVERY 1 MINUTE
+    COMMENT 'Deletes records older than 2 hours.'
+    DO
+      DELETE FROM raids WHERE `unix` < (UNIX_TIMESTAMP() - 7200);
